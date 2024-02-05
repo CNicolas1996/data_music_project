@@ -10,4 +10,3 @@ class ArtistAdder:
 
     def scraper_adder(self):
         pass
-    

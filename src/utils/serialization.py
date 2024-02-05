@@ -1,7 +1,12 @@
 import json
 
+class JSONSerializer:
 
-class JSONSerializable:
+    @staticmethod
+    def to_json(obj):
+        def default(obj):
+            if hasattr(obj, '__dict__'):
+                return obj.__dict__
+            return obj
 
-    def to_json(self):
-        return json.dumps(self, indent=4)
+        return json.dumps(obj, default=default, indent=4)
